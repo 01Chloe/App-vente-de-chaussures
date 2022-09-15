@@ -1,0 +1,304 @@
+@import url('https://fonts.googleapis.com/css2?family=Fascinate&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
+*, ::before, ::after{
+     box-sizing: border-box;
+     margin: 0;
+     padding: 0;
+}
+
+body{
+     background: #f1f1f1;
+     color: #333;
+     font-family: 'Nunito', sans-serif;
+}
+
+/************* NAV ****************/
+.nav-haut{
+     display: flex;
+     justify-content: space-around;
+     align-items: center;
+     padding: 25px 20px;
+     background: #f1f1f1;
+     border-bottom: 1px solid rgb(104, 104, 104);
+     position: fixed;
+     top: 0;
+     height: 65px;
+     width: 100%;
+}
+.nav-haut a{
+     color: #333;
+     text-decoration: none;
+     font-family: Nunito, sans-serif;
+     font-size: 25px;
+     font-weight: 500;
+}
+.nav-haut a::after{
+     content: '';
+     display: block;
+     width: 0;
+     height: 1.5px;
+     background: #333;
+     transition: width 0.3s ease-out;
+}
+.nav-haut a:hover::after{
+     width: 100%;
+}
+.affichage{
+     display: flex;
+     justify-content: row;
+     align-items: center;
+}
+.affichage .shop{
+     font-size: 30px;
+     cursor: pointer;
+     transition: transform 0.2s ease-out;
+}
+.affichage .shop:active{
+     transform: scale(0.9);
+}
+.affichage .shop:hover{
+     color: rgb(104, 104, 104);
+}
+.affichage .profil{
+     border-radius: 50%;
+     margin-left: 45px;
+}
+
+@media screen and (max-width: 850px) {
+     .nav-haut{
+          top: -100px!important;
+     }
+     .nav-haut.active{
+          flex-direction: column;
+          justify-content: space-evenly;
+          align-items: center;
+          position: fixed;
+          left: 0;
+          height: 100%;
+          width: 150px;
+          border-right: 1px solid rgb(104, 104, 104);
+          padding-top: 180px;
+          margin-top: 20px;
+          transition: height 0.3s ease-out;
+     }
+     .affichage{
+          display: none;
+     }
+     .btn-hamburger{
+          display: inline-block;
+          width: 35px;
+          height: 25px;
+          margin: 45px 45px 0;
+          z-index: 5;
+          position: relative;
+          cursor: pointer;
+     }
+     .btn-hamburger.active{
+          position: fixed;
+     }
+     .btn-hamburger .line{
+          position: absolute;
+          width: 100%;
+          height: 3px;
+          background: #333;
+          border-radius: 5px;
+     }
+     .btn-hamburger .line::before{
+          content: '';
+          position: absolute;
+          width: 100%;
+          height: 3px;
+          background: #333;
+          border-radius: 5px;
+          bottom: -16px;
+     }
+     .btn-hamburger .line::after{
+          content: '';
+          position: absolute;
+          width: 100%;
+          height: 3px;
+          background: #333;
+          border-radius: 5px;
+          top: 8px;
+     }
+     .btn-hamburger.active .line{
+          background: transparent;
+     }
+     .btn-hamburger.active .line::before{
+          transform: rotate(-45deg);
+          bottom: 0;
+          transition: bottom 300ms ease, transform 300ms 300ms ease;
+     }
+     .btn-hamburger.active .line::after{
+          transform: rotate(45deg);
+          top: 0;
+          transition: top 300ms ease, transform 300ms 300ms ease;
+     }
+}
+
+
+/*********** MAIN ***********/
+main{
+     display: flex;
+     flex-direction: row;
+     margin: 0 50px 0;
+}
+main img{
+     border-radius: 8px;
+     box-shadow: 0 0 15px rgba(0,0,0,0.3);
+}
+.left{
+     padding: 100px 50px 35px;
+}
+.main-picture img{
+     width: 58%;
+     margin-bottom: 10px;
+}
+.right{
+     display: flex;
+     flex-direction: column;
+     margin-bottom: 35px;
+}
+.litle-picture img{
+     width: 10%;
+     margin-right: 10px;
+     cursor: pointer;
+}
+.litle-picture img:hover{
+     outline: 2px solid rgba(0,0,0,0.3);
+}
+h1{
+     font-family: Fascinate, cursive;
+     font-size: 50px;
+     margin-top: 80px;
+     margin-bottom: 15px;
+}
+h3{
+     color: rgb(255, 208, 0);
+     font-size: 25px;
+}
+h2{
+     font-family: 'Fascinate', cursive;
+     font-size: 35px;
+     margin: 25px 0 15px;
+}
+.expensive{
+     display: flex;
+     flex-direction: row;
+     align-items: center;
+}
+.price{
+     display: inline-block;
+     font-size: 30px;
+     font-weight: 800;
+     margin-top: 15px;
+}
+.reduction{
+     display: inline-block;
+     margin-left: 15px;
+     padding: 3px 5px;
+     background-color: rgba(255, 0, 0, 0.244);
+     color: red;
+     border-radius: 8px;
+}
+.first-price{
+     text-decoration: line-through;
+     color: grey;
+}
+.btn{
+     display: flex;
+     flex-direction: row;
+     justify-content: space-evenly;
+     align-items: center;
+     margin-top: 35px;
+}
+button{
+     padding: 5px 15px;
+     border: 1px solid lightgrey;
+     border-radius: 5px;
+     cursor: pointer;
+}
+.less, .more{
+     padding: 3px 8px;
+     color: rgb(255, 208, 0);
+     font-weight: 800;
+     font-size: 25px;
+     transition: transform 0.2s ease-out;
+}
+.less:active, .more:active{
+     color: rgb(255, 166, 0);
+     transform: scale(0.92);
+}
+.num{
+     font-size: 20px;
+}
+.buy{
+     background-color: rgb(255, 208, 0);
+     font-size: 20px;
+     border: none;
+     transition: transform 0.2s ease-out;
+}
+.buy:hover{
+     background-color: rgb(255, 166, 0);
+}
+.buy:active{
+     transform: scale(0.95);
+}
+.pop-up-add{
+     display: none;
+}
+.pop-up-add.active{
+     display: block;
+     background: rgb(154, 255, 77);
+     color: rgb(0, 101, 0);
+     font-size: 20px;
+     margin-top: 30px;
+     margin-left: auto;
+     padding: 5px;
+     width: 60px;
+     border-radius: 5px;
+
+}
+
+@media screen and (max-width: 1000px) {
+     main{
+          flex-direction: column-reverse;
+     }
+     h1{
+          margin-top: 0;
+     }
+     .left, .right{
+          margin-left: 160px;
+     }
+     .main-picture img{
+          width: 100%;
+     }
+     .litle-picture img{
+          width: 23%;
+     }
+     .pop-up-add.active{
+          margin-top: 10px;
+          font-size: 15px;
+          width: 50px;
+     }
+}
+@media screen and (max-width: 800px) {
+     .left, .right{
+          margin-left: 0px;
+     }
+     .main-picture img{
+          width: 100%;
+     }
+     .litle-picture img{
+          width: 40%;
+     }
+}
+@media screen and (max-width: 350px) {
+     .left{
+          width: 100%;
+          margin: 25px 0;
+          padding: 0;
+     }
+
+}
