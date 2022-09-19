@@ -17,7 +17,7 @@ const picture = document.querySelector('.picture')
 thumbnails.forEach(thumbnail => {
      thumbnail.addEventListener('click', () => {
           let index = thumbnail.getAttribute('data-index')
-          picture.src = `images/chaussure${index}.jpg`;
+          picture.src = `chaussure${index}.jpg`;
      })
 })
 
